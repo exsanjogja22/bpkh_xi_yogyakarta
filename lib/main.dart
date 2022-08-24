@@ -73,25 +73,13 @@ class MyApp extends StatelessWidget {
               ),
             );
           }
-          return StreamBuilder<User?>(
-              stream: FirebaseAuth.instance.authStateChanges(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return MaterialApp(
-                    home: SpalshScreen(),
-                    debugShowCheckedModeBanner: false,
-                  );
-                }
-                return GetMaterialApp(
-                  title: "BPKH XI Yogyakarta",
-                  initialRoute: snapshot.data != null
-                      ? Routes.HOME
-                      : Routes
-                          .HOME, // routing aplikasi untuk pindah halaman ke uaser level
-                  debugShowCheckedModeBanner: false, //hilangkan debug bener
-                  getPages: AppPages.routes,
-                );
-              });
+          return GetMaterialApp(
+            title: "BPKH XI Yogyakarta",
+            initialRoute: Routes
+                .HOME, // routing aplikasi untuk pindah halaman ke uaser level
+            debugShowCheckedModeBanner: false, //hilangkan debug bener
+            getPages: AppPages.routes,
+          );
         });
   }
 }

@@ -6,7 +6,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import '../../../routes/app_pages.dart';
 import '../models/info_alat.dart';
 
 class HomeController extends GetxController {
@@ -15,10 +14,6 @@ class HomeController extends GetxController {
   List<Datum> list = [];
   List<Datum> listSearch = [];
   FirebaseAuth auth = FirebaseAuth.instance;
-  Future<void> logout() async {
-    await auth.signOut();
-    Get.offAllNamed(Routes.LOGINPEGAWAI);
-  }
 
   Stream<InfoAlat> infoAlat() async* {
     try {

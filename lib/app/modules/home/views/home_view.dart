@@ -34,17 +34,6 @@ class HomeView extends GetView<HomeController> {
           titleTextStyle:
               GoogleFonts.openSans(color: Colors.black, fontSize: 12),
           actions: [
-            // IconButton(
-            //   onPressed: () async {
-            //     controller.logout();
-            //   },
-            //   icon: const Icon(
-            //     Icons.logout,
-            //     size: 20,
-            //   ),
-            //   color: Colors.white,
-            //   iconSize: 25,
-            // ),
             IconButton(
               onPressed: () {
                 showSearch(context: context, delegate: DataSearch());

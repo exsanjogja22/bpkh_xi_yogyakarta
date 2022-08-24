@@ -10,8 +10,6 @@ import 'package:bpkh_xi_yogyakarta/app/modules/konfirmasiemail/bindings/konfirma
 import 'package:bpkh_xi_yogyakarta/app/modules/konfirmasiemail/views/konfirmasiemail_view.dart';
 import 'package:bpkh_xi_yogyakarta/app/modules/kontakkepalabalai/bindings/kontakkepalabalai_binding.dart';
 import 'package:bpkh_xi_yogyakarta/app/modules/kontakkepalabalai/views/kontakkepalabalai_view.dart';
-import 'package:bpkh_xi_yogyakarta/app/modules/loginpegawai/bindings/loginpegawai_binding.dart';
-import 'package:bpkh_xi_yogyakarta/app/modules/loginpegawai/views/loginpegawai_view.dart';
 import 'package:bpkh_xi_yogyakarta/app/modules/morekepalabalai/bindings/morekepalabalai_binding.dart';
 import 'package:bpkh_xi_yogyakarta/app/modules/morekepalabalai/views/morekepalabalai_view.dart';
 import 'package:bpkh_xi_yogyakarta/app/modules/newpassword/bindings/newpassword_binding.dart';
@@ -132,11 +130,6 @@ class AppPages {
       name: _Paths.REGISTER,
       page: () => RegisterView(),
       binding: RegisterBinding(),
-    ),
-    GetPage(
-      name: _Paths.LOGINPEGAWAI,
-      page: () => LoginpegawaiView(),
-      binding: LoginpegawaiBinding(),
     ),
     GetPage(
       name: _Paths.NEWPASSWORD,

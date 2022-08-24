@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "71197215528",
+    "project_id": "bpkh-xi-yogyakrta",
+    "storage_bucket": "bpkh-xi-yogyakrta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71197215528:android:cd246b3389d5ee97075e1d",
+        "android_client_info": {
+          "package_name": "bpkh.watulintang.aricode.bpkh_xi_yogyakarta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71197215528-m6pmp13lls18u0215bvsd1m081giq9fj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "bpkh.watulintang.aricode.bpkh_xi_yogyakarta",
+            "certificate_hash": "cc0432c3f513beb127f83db8b4a6ced738480650"
+          }
+        },
+        {
+          "client_id": "71197215528-p52obklipm9k2ugvonq1e7bfona45fiu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAATpWuTGg7g1rhtnhJbRZL7TCYmxwz9o4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71197215528-p52obklipm9k2ugvonq1e7bfona45fiu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "71197215528-43erudtq6q8301955n8d0r0fcaupeen5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "bpkh.watulintang.aricode.bpkhXiYogyakarta"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

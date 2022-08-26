@@ -6,19 +6,12 @@ import 'package:bpkh_xi_yogyakarta/app/modules/detailalat/bindings/detailalat_bi
 import 'package:bpkh_xi_yogyakarta/app/modules/detailalat/views/detailalat_view.dart';
 import 'package:bpkh_xi_yogyakarta/app/modules/homekepalabalai/bindings/homekepalabalai_binding.dart';
 import 'package:bpkh_xi_yogyakarta/app/modules/homekepalabalai/views/homekepalabalai_view.dart';
-import 'package:bpkh_xi_yogyakarta/app/modules/konfirmasiemail/bindings/konfirmasiemail_binding.dart';
-import 'package:bpkh_xi_yogyakarta/app/modules/konfirmasiemail/views/konfirmasiemail_view.dart';
 import 'package:bpkh_xi_yogyakarta/app/modules/kontakkepalabalai/bindings/kontakkepalabalai_binding.dart';
 import 'package:bpkh_xi_yogyakarta/app/modules/kontakkepalabalai/views/kontakkepalabalai_view.dart';
 import 'package:bpkh_xi_yogyakarta/app/modules/morekepalabalai/bindings/morekepalabalai_binding.dart';
 import 'package:bpkh_xi_yogyakarta/app/modules/morekepalabalai/views/morekepalabalai_view.dart';
-import 'package:bpkh_xi_yogyakarta/app/modules/newpassword/bindings/newpassword_binding.dart';
-import 'package:bpkh_xi_yogyakarta/app/modules/newpassword/views/newpassword_view.dart';
-import 'package:bpkh_xi_yogyakarta/app/modules/register/bindings/register_binding.dart';
-import 'package:bpkh_xi_yogyakarta/app/modules/register/views/register_view.dart';
 import 'package:bpkh_xi_yogyakarta/app/modules/statistik/bindings/statistik_binding.dart';
 import 'package:bpkh_xi_yogyakarta/app/modules/statistik/views/statistik_view.dart';
-
 import '../modules/detailpengajuan/bindings/detailpengajuan_binding.dart';
 import '../modules/detailpengajuan/views/detailpengajuan_view.dart';
 import '../modules/formstransaksi/bindings/formstransaksi_binding.dart';
@@ -125,21 +118,6 @@ class AppPages {
       name: _Paths.KONTAKKEPALABALAI,
       page: () => KontakkepalabalaiView(),
       binding: KontakkepalabalaiBinding(),
-    ),
-    GetPage(
-      name: _Paths.REGISTER,
-      page: () => RegisterView(),
-      binding: RegisterBinding(),
-    ),
-    GetPage(
-      name: _Paths.NEWPASSWORD,
-      page: () => NewpasswordView(),
-      binding: NewpasswordBinding(),
-    ),
-    GetPage(
-      name: _Paths.KONFIRMASIEMAIL,
-      page: () => KonfirmasiemailView(),
-      binding: KonfirmasiemailBinding(),
     ),
   ];
 }

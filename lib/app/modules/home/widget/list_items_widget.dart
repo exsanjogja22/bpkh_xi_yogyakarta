@@ -48,10 +48,10 @@ class ListItemsWidget extends StatelessWidget {
                   margin: const EdgeInsets.all(5),
                   height: 90,
                   width: 100,
-                  decoration: data[index].gambar.isNotEmpty
+                  decoration: data[index].gambar!.isNotEmpty
                       ? BoxDecoration(
                           image: DecorationImage(
-                              image: NetworkImage(data[index].gambar)),
+                              image: NetworkImage(data[index].gambar!)),
                           border:
                               Border.all(color: Colors.grey.withOpacity(0.5)),
                           borderRadius: BorderRadius.circular(10),
@@ -77,7 +77,7 @@ class ListItemsWidget extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Text(
-                              data[index].nama,
+                              data[index].nama!,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: GoogleFonts.openSans(
@@ -92,7 +92,7 @@ class ListItemsWidget extends StatelessWidget {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
-                            child: Text(data[index].inventaris,
+                            child: Text(data[index].inventaris!,
                                 style: GoogleFonts.openSans(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
@@ -104,7 +104,7 @@ class ListItemsWidget extends StatelessWidget {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
-                            child: Text(data[index].merk,
+                            child: Text(data[index].merk!,
                                 style: GoogleFonts.openSans(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
@@ -121,7 +121,7 @@ class ListItemsWidget extends StatelessWidget {
                               )),
                           Container(
                             color: Colors.amber,
-                            child: Text(data[index].keterangan),
+                            child: Text(data[index].keterangan!),
                           )
                         ],
                       ),
@@ -132,7 +132,7 @@ class ListItemsWidget extends StatelessWidget {
                   children: [
                     if (data[index].status == true)
                       Container(
-                        width: 70,
+                        width: 76,
                         decoration: BoxDecoration(
                             borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(10),
@@ -154,7 +154,7 @@ class ListItemsWidget extends StatelessWidget {
                     SizedBox(height: 30),
                     if (data[index].status == false)
                       Container(
-                        width: 70,
+                        width: 76,
                         decoration: BoxDecoration(
                             borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(10),

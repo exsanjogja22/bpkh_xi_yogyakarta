@@ -29,7 +29,7 @@ class ListbarangController extends GetxController {
     );
   }
 
-  Stream<InfoAlat> infoAlat2(int limit , int kategori) async* {
+  Stream<InfoAlat> infoAlat2(int limit, int kategori) async* {
     try {
       final response = await http.get(Uri.parse(
           "https://pinjamalat.bpkh11jogja.net/api/pinjam/infobarang?limit=${limit.toString()}&kategori=${kategori.toString()}"));
@@ -37,7 +37,6 @@ class ListbarangController extends GetxController {
         final data = infoAlatFromJson(response.body);
         yield data;
       }
-      
     } catch (e) {
       print(e.toString());
     }
@@ -77,7 +76,7 @@ class ListbarangController extends GetxController {
           "https://pinjamalat.bpkh11jogja.net/api/pinjam/infobarang?limit=1000"));
       if (response.statusCode == 200) {
         final data = infoAlatFromJson(response.body).data;
-        for (var i in data) {
+        for (var i in data!) {
           listbarang.add(i);
         }
       } else {
@@ -95,16 +94,17 @@ class ListbarangController extends GetxController {
     filter.filter();
     super.onInit();
   }
+
   @override
   void onReady() {
-      searchPeminjamn();
+    searchPeminjamn();
     super.onReady();
   }
+
   @override
   void onClose() {
     MenuItemsWidget.listItemsMenu.clear();
-     searchPeminjamn();
+    searchPeminjamn();
     super.onClose();
   }
 }
- 

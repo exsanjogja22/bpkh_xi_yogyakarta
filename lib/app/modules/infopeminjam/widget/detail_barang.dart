@@ -72,7 +72,7 @@ class DetailBarang extends StatelessWidget {
                                   style: GoogleFonts.openSans(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 12))),
-                          Text(data.transaksi),
+                          Text(data!.transaksi!),
                         ],
                       ),
                       SizedBox(
@@ -92,7 +92,7 @@ class DetailBarang extends StatelessWidget {
                                   style: GoogleFonts.openSans(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 12))),
-                          Text(data.namapeminjam,
+                          Text(data.namapeminjam!,
                               style: GoogleFonts.openSans(fontSize: 12)),
                         ],
                       ),
@@ -113,7 +113,7 @@ class DetailBarang extends StatelessWidget {
                                   style: GoogleFonts.openSans(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 12))),
-                          Text(data.nip,
+                          Text(data.nip!,
                               style: GoogleFonts.openSans(fontSize: 12)),
                         ],
                       ),
@@ -134,7 +134,7 @@ class DetailBarang extends StatelessWidget {
                                   style: GoogleFonts.openSans(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 12))),
-                          Text(data.noWa,
+                          Text(data.noWa!,
                               style: GoogleFonts.openSans(fontSize: 12)),
                         ],
                       ),
@@ -156,7 +156,7 @@ class DetailBarang extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       fontSize: 12))),
                           Text(
-                              " ${DateFormat("d-MM-yyyy", "id_ID").format(data.tglpinjam).toString()}",
+                              " ${DateFormat("d-MM-yyyy", "id_ID").format(data.tglpinjam!).toString()}",
                               style: GoogleFonts.openSans(fontSize: 12)),
                         ],
                       ),
@@ -178,7 +178,7 @@ class DetailBarang extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       fontSize: 12))),
                           Text(
-                              " ${DateFormat("d-MM-yyyy ", "id_ID").format(data.tglkembali).toString()}",
+                              " ${DateFormat("d-MM-yyyy ", "id_ID").format(data.tglkembali!).toString()}",
                               style: GoogleFonts.openSans(fontSize: 12)),
                         ],
                       ),
@@ -234,20 +234,20 @@ class DetailBarang extends StatelessWidget {
                                   ),
                                   tooltip: 'represents if user is verified.'),
                             ],
-                            rows: data.daftarBarang
+                            rows: data.daftarBarang!
                                 .map((cell) => DataRow(cells: [
                                       DataCell(
-                                        Text(cell.inventaris,
+                                        Text(cell.inventaris!,
                                             style: GoogleFonts.openSans(
                                                 fontSize: 12)),
                                       ),
                                       DataCell(
-                                        Text(cell.nama,
+                                        Text(cell.nama!,
                                             style: GoogleFonts.openSans(
                                                 fontSize: 12)),
                                       ),
                                       DataCell(
-                                        Text(cell.kategori,
+                                        Text(cell.kategori!,
                                             style: GoogleFonts.openSans(
                                                 fontSize: 12)),
                                       ),

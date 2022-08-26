@@ -79,7 +79,7 @@ class HomeView extends GetView<HomeController> {
                       Positioned(
                         left: 0,
                         right: 0,
-                        top: MediaQuery.of(context).padding.top,
+                        top: 10,
                         child: Container(
                           margin: EdgeInsets.all(10),
                           height: 140,
@@ -144,7 +144,7 @@ class HomeView extends GetView<HomeController> {
                                                   final infoAlat =
                                                       snapshot.data!;
                                                   return Text(
-                                                    infoAlat.length.toString(),
+                                                    "${infoAlat.length + controller.jmlPeminjam.value}",
                                                     style: GoogleFonts.openSans(
                                                         color: Colors.black,
                                                         fontWeight:
@@ -192,12 +192,15 @@ class HomeView extends GetView<HomeController> {
                                                                   FontWeight
                                                                       .bold,
                                                               fontSize: 12)),
-                                                  Text("4 Unit",
+                                                  Obx(() => Text(
+                                                      controller
+                                                          .jmlPeminjam.value
+                                                          .toString(),
                                                       style:
                                                           GoogleFonts.openSans(
                                                               color:
                                                                   Colors.black,
-                                                              fontSize: 12)),
+                                                              fontSize: 12))),
                                                 ],
                                               ),
                                             )),
@@ -218,12 +221,41 @@ class HomeView extends GetView<HomeController> {
                                                                   FontWeight
                                                                       .bold,
                                                               fontSize: 12)),
-                                                  Text("26 Unit",
-                                                      style:
-                                                          GoogleFonts.openSans(
-                                                              color:
-                                                                  Colors.black,
-                                                              fontSize: 12)),
+                                                  StreamBuilder<List<Datum>>(
+                                                      stream: controller
+                                                          .infoAlat2(1000),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        if (snapshot.hasData) {
+                                                          final infoAlat =
+                                                              snapshot.data!;
+                                                          return Text(
+                                                            "${infoAlat.length}",
+                                                            style: GoogleFonts
+                                                                .openSans(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontSize:
+                                                                        12),
+                                                          );
+                                                        } else {
+                                                          return Text(
+                                                            "0  ",
+                                                            style: GoogleFonts
+                                                                .openSans(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontSize:
+                                                                        12),
+                                                          );
+                                                        }
+                                                      })
                                                 ],
                                               ),
                                             ))
@@ -261,7 +293,7 @@ class HomeView extends GetView<HomeController> {
                             return Column(
                               children: [
                                 DayItemsWidget(
-                                  data: infoAlat,
+                                  data: infoAlat!,
                                 ),
                               ],
                             );

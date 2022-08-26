@@ -22,9 +22,6 @@ abstract class Routes {
   static const STATISTIK = _Paths.STATISTIK;
   static const MOREKEPALABALAI = _Paths.MOREKEPALABALAI;
   static const KONTAKKEPALABALAI = _Paths.KONTAKKEPALABALAI;
-  static const REGISTER = _Paths.REGISTER;
-  static const NEWPASSWORD = _Paths.NEWPASSWORD;
-  static const KONFIRMASIEMAIL = _Paths.KONFIRMASIEMAIL;
 }
 
 abstract class _Paths {
@@ -44,7 +41,4 @@ abstract class _Paths {
   static const STATISTIK = '/statistik';
   static const MOREKEPALABALAI = '/morekepalabalai';
   static const KONTAKKEPALABALAI = '/kontakkepalabalai';
-  static const REGISTER = '/register';
-  static const NEWPASSWORD = '/newpassword';
-  static const KONFIRMASIEMAIL = '/konfirmasiemail';
 }

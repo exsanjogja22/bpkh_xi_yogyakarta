@@ -53,14 +53,14 @@ class DayItemsWidget extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.only(bottom: 10),
                       height: 70,
-                      decoration: data[index].gambar.isNotEmpty
+                      decoration: data[index].gambar!.isNotEmpty
                           ? BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white,
                               border: Border.all(
                                   color: Colors.grey.withOpacity(0.5)),
                               image: DecorationImage(
-                                  image: NetworkImage(data[index].gambar)))
+                                  image: NetworkImage(data[index].gambar!)))
                           : BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white,
@@ -68,7 +68,7 @@ class DayItemsWidget extends StatelessWidget {
                                   color: Colors.grey.withOpacity(0.5)),
                               image: DecorationImage(
                                   image: AssetImage(
-                                      "assets/images/rol-meter3.png"))),
+                                      "assets/images/image_not_found.png"))),
                     ),
                     Flexible(
                       child: Column(
@@ -78,7 +78,7 @@ class DayItemsWidget extends StatelessWidget {
                               Expanded(
                                 child: Container(
                                   margin: const EdgeInsets.only(bottom: 10),
-                                  child: Text(data[index].nama,
+                                  child: Text(data[index].nama!,
                                       style: GoogleFonts.openSans(
                                           fontSize: 12,
                                           fontWeight: FontWeight.bold,
@@ -91,7 +91,19 @@ class DayItemsWidget extends StatelessWidget {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Expanded(
-                                child: Text(data[index].merk,
+                                child: Text(data[index].inventaris!,
+                                    style: GoogleFonts.openSans(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                    )),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Text(data[index].merk!,
                                     style: GoogleFonts.openSans(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w400,
@@ -101,13 +113,13 @@ class DayItemsWidget extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              Text("Keterangan",
+                              Text("Keterangan: ",
                                   style: GoogleFonts.openSans(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w400,
                                   )),
                               Container(
-                                child: Text(data[index].keterangan),
+                                child: Text(data[index].keterangan!),
                               )
                             ],
                           )
@@ -120,7 +132,7 @@ class DayItemsWidget extends StatelessWidget {
                       children: [
                         if (data[index].status == true)
                           Container(
-                            width: 70,
+                            width: 80,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
                                 color: const Color.fromARGB(255, 76, 175, 117)
@@ -138,7 +150,7 @@ class DayItemsWidget extends StatelessWidget {
                           ),
                         if (data[index].status == false)
                           Container(
-                            width: 70,
+                            width: 80,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
                                 color: Colors.red.withOpacity(0.7)),

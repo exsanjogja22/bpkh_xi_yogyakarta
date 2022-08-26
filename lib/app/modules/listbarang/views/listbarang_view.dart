@@ -32,7 +32,8 @@ class ListbarangView extends GetView<ListbarangController> {
               'Stok Barang',
             ),
           ),
-          titleTextStyle: GoogleFonts.openSans(color: Colors.black, fontSize: 18),
+          titleTextStyle:
+              GoogleFonts.openSans(color: Colors.black, fontSize: 18),
           actions: [
             IconButton(
               onPressed: () {
@@ -71,7 +72,8 @@ class ListbarangView extends GetView<ListbarangController> {
         ),
         body: Obx(
           () => StreamBuilder<InfoAlat?>(
-              stream: controller.infoAlat2(controller.limit.value, controller.kategori.value),
+              stream: controller.infoAlat2(
+                  controller.limit.value, controller.kategori.value),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   final infoAlat = snapshot.data!.data;
@@ -84,7 +86,7 @@ class ListbarangView extends GetView<ListbarangController> {
                       enablePullUp: true,
                       onLoading: controller.toLoading,
                       child: ListView.builder(
-                        itemCount: infoAlat.length,
+                        itemCount: infoAlat!.length,
                         itemBuilder: (context, index) {
                           return GestureDetector(
                               onTap: () {},
@@ -118,7 +120,7 @@ class ListbarangView extends GetView<ListbarangController> {
                                           image: infoAlat[index].gambar != ""
                                               ? DecorationImage(
                                                   image: NetworkImage(
-                                                      infoAlat[index].gambar))
+                                                      infoAlat[index].gambar!))
                                               : DecorationImage(
                                                   image: AssetImage(
                                                       "assets/images/image_not_found.png")),
@@ -142,7 +144,7 @@ class ListbarangView extends GetView<ListbarangController> {
                                               children: [
                                                 Expanded(
                                                   child: Text(
-                                                    infoAlat[index].nama,
+                                                    infoAlat[index].nama!,
                                                     maxLines: 1,
                                                     overflow:
                                                         TextOverflow.ellipsis,
@@ -160,7 +162,7 @@ class ListbarangView extends GetView<ListbarangController> {
                                                 Expanded(
                                                   child: Text(
                                                       infoAlat[index]
-                                                          .inventaris,
+                                                          .inventaris!,
                                                       style: GoogleFonts.roboto(
                                                         fontWeight:
                                                             FontWeight.w400,
@@ -173,7 +175,7 @@ class ListbarangView extends GetView<ListbarangController> {
                                               children: [
                                                 Expanded(
                                                   child: Text(
-                                                      infoAlat[index].merk,
+                                                      infoAlat[index].merk!,
                                                       style: GoogleFonts.roboto(
                                                         fontWeight:
                                                             FontWeight.w400,
@@ -191,7 +193,7 @@ class ListbarangView extends GetView<ListbarangController> {
                                                 Container(
                                                   color: Colors.amber,
                                                   child: Text(infoAlat[index]
-                                                      .keterangan),
+                                                      .keterangan!),
                                                 )
                                               ],
                                             )
@@ -267,10 +269,10 @@ class ListbarangView extends GetView<ListbarangController> {
                                               InkWell(
                                                 onTap: () {
                                                   controller.addAlat(
-                                                      infoAlat[index].id,
+                                                      infoAlat[index].id!,
                                                       infoAlat[index]
-                                                          .inventaris,
-                                                      infoAlat[index].nama);
+                                                          .inventaris!,
+                                                      infoAlat[index].nama!);
                                                 },
                                                 child: Container(
                                                   margin:
@@ -307,9 +309,8 @@ class ListbarangView extends GetView<ListbarangController> {
         ));
   }
 
-  PopupMenuItem<MenuItems> buildItems(MenuItems item) => PopupMenuItem(
-      value: item,
-      child: Text(item.selection));
+  PopupMenuItem<MenuItems> buildItems(MenuItems item) =>
+      PopupMenuItem(value: item, child: Text(item.selection));
   void onSelected(BuildContext context, MenuItems item) {
     controller.kategori.value = item.id;
   }

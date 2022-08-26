@@ -6,14 +6,14 @@ String infoAlatToJson(InfoAlat data) => json.encode(data.toJson());
 
 class InfoAlat {
   InfoAlat({
-    required this.data,
-    required this.pesan,
-    required this.status,
+    this.data,
+    this.pesan,
+    this.status,
   });
 
-  List<Datum> data;
-  String pesan;
-  bool status;
+  List<Datum>? data;
+  String? pesan;
+  bool? status;
 
   factory InfoAlat.fromJson(Map<String, dynamic> json) => InfoAlat(
         data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
@@ -22,7 +22,7 @@ class InfoAlat {
       );
 
   Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
+        "data": List<dynamic>.from(data!.map((x) => x.toJson())),
         "pesan": pesan,
         "status": status,
       };
@@ -30,26 +30,26 @@ class InfoAlat {
 
 class Datum {
   Datum({
-    required this.id,
-    required this.status,
-    required this.kondisi,
-    required this.nama,
-    required this.merk,
-    required this.kategori,
-    required this.inventaris,
-    required this.gambar,
-    required this.keterangan,
+    this.id,
+    this.status,
+    this.kondisi,
+    this.nama,
+    this.merk,
+    this.kategori,
+    this.inventaris,
+    this.gambar,
+    this.keterangan,
   });
 
-  int id;
-  bool status;
-  String kondisi;
-  String nama;
-  String merk;
-  String kategori;
-  String inventaris;
-  String gambar;
-  String keterangan;
+  int? id;
+  bool? status;
+  String? kondisi;
+  String? nama;
+  String? merk;
+  String? kategori;
+  String? inventaris;
+  String? gambar;
+  String? keterangan;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],

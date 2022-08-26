@@ -44,10 +44,10 @@ class DataSearchPeminjaman extends SearchDelegate<String> {
     final responseList = query.isEmpty
         ? peminjamanC.listSearch
         : peminjamanC.listbarang
-            .where((c) => c.nama.toLowerCase().startsWith(query))
+            .where((c) => c.nama!.toLowerCase().startsWith(query))
             .toList();
     return peminjamanC.listbarang
-            .where((c) => c.nama.toLowerCase().startsWith(query))
+            .where((c) => c.nama!.toLowerCase().startsWith(query))
             .toList()
             .isNotEmpty
         ? ListView.builder(
@@ -80,7 +80,7 @@ class DataSearchPeminjaman extends SearchDelegate<String> {
                         decoration: BoxDecoration(
                             image: responseList[index].gambar != ""
                         ? DecorationImage(
-                            image: NetworkImage(responseList[index].gambar))
+                            image: NetworkImage(responseList[index].gambar!))
                         : DecorationImage(
                             image: AssetImage(
                                 "assets/images/image_not_found.png")),
@@ -100,7 +100,7 @@ class DataSearchPeminjaman extends SearchDelegate<String> {
                               children: [
                                   Expanded(
                                   child: Text(
-                                    responseList[index].nama,
+                                    responseList[index].nama!,
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.roboto(
@@ -114,7 +114,7 @@ class DataSearchPeminjaman extends SearchDelegate<String> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Expanded(
-                                  child: Text(responseList[index].inventaris,
+                                  child: Text(responseList[index].inventaris!,
                                       style: GoogleFonts.roboto(
                                         fontWeight: FontWeight.w400,
                                       )),
@@ -126,7 +126,7 @@ class DataSearchPeminjaman extends SearchDelegate<String> {
                               children: [
                                 Expanded(
                                   child:
-                                      Text(responseList[index].merk,
+                                      Text(responseList[index].merk!,
                                           style: GoogleFonts.roboto(
                                             fontWeight: FontWeight.w400,
                                           )),
@@ -164,9 +164,9 @@ class DataSearchPeminjaman extends SearchDelegate<String> {
                               InkWell(
                                 onTap: () {
                                   peminjamanC.addAlat(
-                                      responseList[index].id,
-                                      responseList[index].inventaris,
-                                      responseList[index].nama);
+                                      responseList[index].id!,
+                                      responseList[index].inventaris!,
+                                      responseList[index].nama!);
                                 },
                                 child: Container(
                                   margin: const EdgeInsets.all(5),

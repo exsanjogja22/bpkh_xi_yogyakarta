@@ -115,17 +115,17 @@ class InfopeminjamView extends GetView<InfopeminjamController> {
                                                 tooltip:
                                                     'represents if user is verified.'),
                                           ],
-                                              rows: data
+                                              rows: data!
                                                   .map(
                                                       (data) => DataRow(cells: [
                                                             DataCell(Text(
-                                                                data.nama,
+                                                                data.nama!,
                                                                 style: GoogleFonts
                                                                     .openSans(
                                                                   fontSize: 12,
                                                                 ))),
                                                             DataCell(Text(
-                                                                " ${DateFormat("EEEE, d MMMM yyyy", "id_ID").format(data.tanggalKembali).toString()}",
+                                                                " ${DateFormat("EEEE, d MMMM yyyy", "id_ID").format(data.tanggalKembali!).toString()}",
                                                                 style: GoogleFonts
                                                                     .openSans(
                                                                   fontSize: 12,
@@ -154,7 +154,7 @@ class InfopeminjamView extends GetView<InfopeminjamController> {
                                                                       builder:
                                                                           (context) {
                                                                         return DetailBarang(
-                                                                            id: data.id);
+                                                                            id: data.id!);
                                                                       });
                                                                 },
                                                                 borderRadius:
@@ -172,7 +172,7 @@ class InfopeminjamView extends GetView<InfopeminjamController> {
                                                                               if (snapshot.hasData) {
                                                                                 final data = snapshot.data!.data;
                                                                                 return Text(
-                                                                                  data.daftarBarang.length.toString(),
+                                                                                  data!.daftarBarang!.length.toString(),
                                                                                   style: GoogleFonts.openSans(color: Colors.white),
                                                                                 );
                                                                               } else {

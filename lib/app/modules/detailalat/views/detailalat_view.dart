@@ -35,11 +35,18 @@ class DetailalatView extends GetView<DetailalatController> {
         ],
       ),
       body: Column(children: [
-        Image.network(
-          data[0],
-          height: MediaQuery.of(context).size.height * 0.4,
-          fit: BoxFit.cover,
-        ),
+        if (data[0] != "")
+          Image.network(
+            data[0],
+            height: MediaQuery.of(context).size.height * 0.4,
+            fit: BoxFit.cover,
+          ),
+        if (data[0] == "")
+          Image.asset(
+            "assets/images/image_not_found.png",
+            height: MediaQuery.of(context).size.height * 0.4,
+            fit: BoxFit.cover,
+          ),
         Expanded(
             child: Container(
           padding: const EdgeInsets.fromLTRB(10, 20, 10, 10),
@@ -60,7 +67,7 @@ class DetailalatView extends GetView<DetailalatController> {
                   ),
                   if (data[2] == true)
                     Container(
-                      width: 70,
+                      width: 76,
                       decoration: BoxDecoration(
                           borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(10),
@@ -81,7 +88,7 @@ class DetailalatView extends GetView<DetailalatController> {
                     ),
                   if (data[2] == false)
                     Container(
-                      width: 70,
+                      width: 76,
                       decoration: BoxDecoration(
                           borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(10),

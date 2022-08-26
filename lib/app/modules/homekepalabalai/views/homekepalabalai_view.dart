@@ -87,7 +87,7 @@ class HomekepalabalaiView extends GetView<HomekepalabalaiController> {
                         if (snapshot.hasData) {
                           final infoAlat = snapshot.data!.data;
                           return DayItemsWidget(
-                            data: infoAlat,
+                            data: infoAlat!,
                           );
                         } else {
                           return LoadingWidget();

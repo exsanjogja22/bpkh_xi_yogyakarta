@@ -6,6 +6,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import '../../infopeminjam/models/peminjam.dart';
 import '../models/info_alat.dart';
 
 class HomeController extends GetxController {
@@ -14,6 +15,24 @@ class HomeController extends GetxController {
   List<Datum> list = [];
   List<Datum> listSearch = [];
   FirebaseAuth auth = FirebaseAuth.instance;
+  RxInt jmlPeminjam = 0.obs;
+
+  // ignore: body_might_complete_normally_nullable
+  Future infoPeminjaman() async {
+    ///get data info peminjam
+    try {
+      final response = await http.get(Uri.parse(
+          "https://pinjamalat.bpkh11jogja.net/api/pinjam/peminjam")); // info link peminjaman
+      if (response.statusCode == 200) {
+        final data = peminjamFromJson(response.body);
+        for (var i in data.data!) {
+          jmlPeminjam.value = jmlPeminjam.value + i.totalBarang!;
+        }
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 
   Stream<InfoAlat> infoAlat() async* {
     try {
@@ -34,7 +53,7 @@ class HomeController extends GetxController {
           "https://pinjamalat.bpkh11jogja.net/api/pinjam/infobarang?limit=${limit.toString()}}"));
       if (response.statusCode == 200) {
         final data = infoAlatFromJson(response.body).data;
-        yield data;
+        yield data!;
       }
     } catch (e) {
       print(e.toString());
@@ -47,7 +66,7 @@ class HomeController extends GetxController {
           "https://pinjamalat.bpkh11jogja.net/api/pinjam/infobarang?limit=1000"));
       if (response.statusCode == 200) {
         final data = infoAlatFromJson(response.body).data;
-        for (var i in data) {
+        for (var i in data!) {
           list.add(i);
         }
       } else {
@@ -73,6 +92,7 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
+    infoPeminjaman();
     search();
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification? notification = message.notification;

@@ -13,9 +13,7 @@ class LoadingWidget2 extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () {
-             
-            },
+            onTap: () {},
             child: Container(
               margin: const EdgeInsets.only(
                   left: 10, right: 10, top: 10, bottom: 5),
@@ -117,7 +115,7 @@ class LoadingWidget2 extends StatelessWidget {
                         highlightColor: Colors.grey[200]!,
                         enabled: true,
                         child: Container(
-                          width: 50,
+                          width: 52,
                           decoration: BoxDecoration(
                               borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(10),
